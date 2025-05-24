@@ -1,7 +1,7 @@
 import { Skeleton } from "@heroui/react";
 import React, { useEffect, useState } from "react";
 
-export default function Viewport({
+export default function ImageViewport({
   isGenerating,
   image,
 }: {
@@ -25,18 +25,18 @@ export default function Viewport({
           className="w-full h-full"
           isLoaded={!isGenerating}
           classNames={{
-            content: "w-full h-full",
+            content: "w-full h-full flex justify-center items-center",
           }}
         >
           {imageUrl && (
             <img
               src={imageUrl}
-              className="max-w-full max-h-full object-contain mx-auto my-auto rounded-xl"
+              className="max-w-full max-h-full object-contain rounded-xl"
             />
           )}
         </Skeleton>
       ) : (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center text-center">
           Enter a prompt or use voice input to generate an image.
         </div>
       )}
