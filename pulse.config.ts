@@ -1,5 +1,6 @@
 import { ExtensionConfig, ExtensionTypeEnum } from "@pulse-editor/shared-utils";
 import packageJson from "./package.json" with { type: "json" };
+import { generateImageCommandInfo, generateVideoCommandInfo } from "./src/lib/commands";
 
 /**
  * Pulse Editor Extension Config
@@ -13,7 +14,11 @@ const config: ExtensionConfig = {
   description: packageJson.description,
   version: packageJson.version,
   extensionType: ExtensionTypeEnum.FileView,
-  fileTypes: ["txt", "json", "py", "cpp", "c", "tsx", "ts", "js", "jsx"],
+  fileTypes: ["peve.video"],
+  commandsInfoList: [
+    generateImageCommandInfo,
+    generateVideoCommandInfo
+  ]
 };
 
 export default config;
